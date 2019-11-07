@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+
+<br>
+<br>
+
+<div class="container">
+    <div class="col-md-10 md-offset-1  col-sm-4">
+   <p>To analyze, enter your customer review <i class='fas fa-edit' style='font-size:36px'></i></p><br>
+    
+   {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+               {{ message }} {{msg}}
+           <h4>Review : <small>{{rev}}</small></h4>    
+           <h4>Category : <small>{{result}}</small></h4>
+           {% if sentiment %}
+              <h4>Sentiment : <small>Great</small></h4>
+            {% else %}
+              <h4>Sentiment : <small>Poor</small></h4>
+            {% endif %}
+
+            </div>
+       
+   {% endfor %} 
+
+   <form action="{% url 'reviews:single' %}"  enctype="multipart/form-data" method="POST">
+				{% csrf_token %}
+				{{forms.as_p}}
+			   <center><button type="submit"  class="btn btn-primary">Start analyzing</button></center>			      
+   </form>
+
+</div>
+</div>
+
+
+
+<style type="text/css">
+	.active-pink-textarea.md-form label.active {
+  color: #f48fb1;
+}
+.pink-textarea textarea.md-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #f48fb1;
+  box-shadow: 0 1px 0 0 #f48fb1;
+}
+.pink-textarea.md-form .prefix.active {
+  color: #f48fb1;
+}
+.active-pink-textarea.md-form textarea.md-textarea:focus:not([readonly])+label {
+  color: #f48fb1;
+}
+
+.active-amber-textarea.md-form label.active {
+  color: #ffa000;
+}
+.amber-textarea textarea.md-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #ffa000;
+  box-shadow: 0 1px 0 0 #ffa000;
+}
+.amber-textarea.md-form .prefix.active {
+  color: #ffa000;
+}
+.active-amber-textarea.md-form textarea.md-textarea:focus:not([readonly])+label {
+  color: #ffa000;
+}
+
+.active-pink-textarea-2 textarea.md-textarea {
+  border-bottom: 1px solid #f48fb1;
+  box-shadow: 0 1px 0 0 #f48fb1;
+}
+.active-pink-textarea-2.md-form label.active {
+  color: #f48fb1;
+}
+.active-pink-textarea-2.md-form label {
+  color: #f48fb1;
+}
+.active-pink-textarea-2.md-form .prefix {
+  color: #f48fb1;
+}
+.active-pink-textarea-2.md-form textarea.md-textarea:focus:not([readonly])+label {
+  color: #f48fb1;
+}
+
+.active-amber-textarea-2 textarea.md-textarea {
+  border-bottom: 1px solid #ffa000;
+  box-shadow: 0 1px 0 0 #ffa000;
+}
+.active-amber-textarea-2.md-form label.active {
+  color: #ffa000;
+}
+.active-amber-textarea-2.md-form label {
+  color: #ffa000;
+}
+.active-amber-textarea-2.md-form .prefix {
+  color: #ffa000;
+}
+.active-amber-textarea-2.md-form textarea.md-textarea:focus:not([readonly])+label {
+  color: #ffa000;
+}
+
+
+
+#id_review
+{
+  height:200px;
+  width:800px;
+  margin-left: 4%;
+}
+
+.button{
+  transition:all .50s linear;
+}
+
+.fadeOut{
+  opacity:0;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{% endblock %}

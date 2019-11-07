@@ -1,0 +1,1 @@
+Built a web application using django - Which takes a csv file and analyze sentiments along with aspects(single) and plots a graph which tells what is working well and what is not. Transfer learning is also used.

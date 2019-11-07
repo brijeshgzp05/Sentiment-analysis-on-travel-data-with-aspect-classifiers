@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+<center>
+<div style='margin-top:200px;'>
+	<a href="{% url 'reviews:single' %}" class='btn btn-primary'>Single review analyzer</a>
+	<br>
+	<br>
+	<a href="{% url 'reviews:file' %}" class='btn btn-primary'>File review analyzer</a>
+</div>
+</center>
+{% endblock %}

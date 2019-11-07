@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+<center>
+<div style="margin-top: 200px;color:white;">
+
+	<h4>Text : <small>{{rev}}</small></h4>
+	<br>
+	<h4>Category : <small>{{result}}</small></h4>
+	<br>
+	<h4>Polarity : <small>
+							{% if sentiment %}
+							Rich
+							{% else %}
+							Poor
+							{% endif %}
+				 </small>
+	</h4>
+	
+</div>
+</center>
+{% endblock %}

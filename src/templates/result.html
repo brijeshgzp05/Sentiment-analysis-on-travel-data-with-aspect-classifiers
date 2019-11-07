@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+<!-- <h1>{{rev_obj}}</h1>
+<h2>{{revlist}}</h2> -->
+{%  block body %}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+ th {
+ 	color:orange;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+td{
+	border: 1px solid white;
+  text-align: left;
+  padding: 8px;
+  color:white;
+}
+.list{
+	margin-top: 3%;
+	
+}
+.log{
+	background-color:rgb(0,10,20,0.5);
+}
+</style>
+
+<div class="list">
+	<center><h1 style="font-size: 45px">Database</h1></center><br>
+<table class="log">
+	<thead>
+			<tr>
+				<th>Reviews</th>
+				<th>Category</th>
+				<th>Sentiment</th>
+			</tr>
+	</thead>
+{% if rev_obj %}
+	<tbody>
+		{% for rev in rev_obj %}
+			<tr>
+				<td>{{ rev.review }}</td>
+				<td>{{ rev.category }}</td>
+				<td>{% if rev.sentiment %}
+                    <p>Positive Review</p>
+      {% else %}
+        <p>Negative Review</p>
+      {% endif %}</td>				
+			</tr>
+			{% endfor %}	
+
+</tbody>
+{% endif %}
+</table>
+{% endblock %}
